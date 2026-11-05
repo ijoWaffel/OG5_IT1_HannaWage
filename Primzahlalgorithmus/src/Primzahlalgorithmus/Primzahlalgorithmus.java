@@ -7,6 +7,9 @@ public class Primzahlalgorithmus {
 	long milsecoundsend;
 	long milsecounds;
 	long secounds;
+	long nanosecounds;
+	long nanosecoundsStart;
+	long nanosecoundsEnd;
 	
 
 	public Primzahlalgorithmus() {
@@ -14,12 +17,14 @@ public class Primzahlalgorithmus {
 
 	public boolean  isPrim(long zahl) {
 		setMilsecoundsstart();
+		setNanosecoundsStart();
 		boolean istPrimzahl = true;
 
 		for (int i = 2; i <= zahl / 2; i++) {
 			if (zahl % i == 0) {
 				istPrimzahl = false;
 				setMilsecoundsend();
+				setNanosecoundsEnd();
 				return istPrimzahl;
 				
 			}
@@ -27,6 +32,7 @@ public class Primzahlalgorithmus {
 		
 		
 		setMilsecoundsend();
+		setNanosecoundsEnd();
 		return istPrimzahl;
 	}
 	
@@ -44,10 +50,21 @@ public class Primzahlalgorithmus {
 	}
 	
 	public long getSecounds() {
-		secounds = milsecounds / 1000;
+		secounds = getMilsecounds() / 1000;
 		return secounds;
 	}
 
+	private void setNanosecoundsStart() {
+		nanosecoundsStart = System.nanoTime();
+	}
 	
+	private void setNanosecoundsEnd() {
+		nanosecoundsEnd = System.nanoTime();
+	}
+	
+	public long getNanosecounds() {
+		nanosecounds = nanosecoundsEnd - nanosecoundsStart;
+		return nanosecounds;
+	}
 
 }
