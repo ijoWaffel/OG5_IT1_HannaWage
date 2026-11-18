@@ -29,7 +29,7 @@ public class Suchalgorithmen {
 	}
 	
 	public long interpolesuche(int start, int end,long[] liste,long x){
-		if(x<=end+1) {
+		if(x<=liste[end]) {
 		if(start<end) {
 			long t = start +((end-start)*((x-liste[start])/(liste[end]-liste[start])));
 			int f = (int)t;
@@ -57,7 +57,7 @@ public class Suchalgorithmen {
 	public long quadratischbinaereSuche(int start, int end,long[] liste,long x){
 		double n = end-start+1;
 		boolean keepGoing=true;
-		if(x<=end+1) {
+		if(x<=liste[end]) {
 			if(start<end) {
 			long t = start +((end-start)*((x-liste[start])/(liste[end]-liste[start])));
 			int f = (int)t;
